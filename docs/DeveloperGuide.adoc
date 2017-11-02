@@ -211,6 +211,7 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the Address Book and Meeting List data in xml format and read it back.
 * can save a backup of the Address Book and restore from a backup file.
+* can save cache data in local storage.
 
 === Common classes
 
@@ -644,6 +645,29 @@ people is then continually updated, before it is finally returned to the user
 **Aspect:** implementation of `Search` command over `Find`  +
 **Pros:** More powerful search tool +
 **Cons:** Unnecessary results may be returned for larger address books
+
+---
+
+=== Profile Photo   
+
+A profile photo is displayed for each person in the addressbook.
+
+==== Implementation
+
+During startup, the application uses a person's email address to download his/her profile photo from link:https://en.gravatar.com/site/implement/[Gravatar] `cache/`. The photo will then be displayed on the person card.
+
+==== Design Considerations
+
+**Aspect:** source of the profile photos +
+**Alternative 1 (current choice):** Gravatar +
+**Pros:** easy to implement; does not require user to input extra information +
+**Cons:** less customizable
+**Alternative 2:** from other social network websites (Instagram, Facebook, etc.) +
+**Pros:** OurAb's target demographics usually update their profile photos on SNS more frequently +
+**Cons:** Authentication might be required; User need to input contacts' user id for different websites +
+**Alternative 3:** user uploads profile photo for each person +
+**Pros:** User has most freedom to customize their addressbook +
+**Cons:** Upload photo would be too complicated for a CLI application +
 
 ---
 
