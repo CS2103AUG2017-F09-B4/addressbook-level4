@@ -38,6 +38,7 @@ public class ChooseCommand extends Command {
             EventsCenter.getInstance().post(new ShowMeetingEvent());
             EventsCenter.getInstance().post(new JumpToBrowserListRequestEvent(targetDisplay));
         } else if (targetDisplay.equals("linkedin") || targetDisplay.equals("google") || targetDisplay.equals("maps")) {
+
             EventsCenter.getInstance().post(new ShowBrowserEvent());
             EventsCenter.getInstance().post(new JumpToBrowserListRequestEvent(targetDisplay));
         } else {
